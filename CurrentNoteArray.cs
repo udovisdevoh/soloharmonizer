@@ -10,7 +10,7 @@ namespace HarmonicSolo
     /// </summary>
     class CurrentNoteArray
     {
-        private Dictionary<int, DateTime> rememberedNotes = new Dictionary<int, DateTime>();
+        private HashSet<int> rememberedNotes = new HashSet<int>();
 
         /// <summary>
         /// Remember whether note is on or off
@@ -21,18 +21,11 @@ namespace HarmonicSolo
         {
             if (isOn)
             {
-                if (rememberedNotes.ContainsKey(noteValue))
-                {
-                    rememberedNotes[noteValue] = DateTime.Now;
-                }
-                else
-                {
-                    rememberedNotes.Add(noteValue, DateTime.Now);
-                }
+                rememberedNotes.Add(noteValue % 12);
             }
             else
             {
-                rememberedNotes.Remove(noteValue);
+                rememberedNotes.Remove(noteValue % 12);
             }
         }
 
@@ -43,7 +36,7 @@ namespace HarmonicSolo
         /// <returns>whether note is on</returns>
         internal bool IsNoteOn(int noteValue)
         {
-            return rememberedNotes.ContainsKey(noteValue) && DateTime.Now.Subtract(rememberedNotes[noteValue]).Milliseconds < 300;
+            return rememberedNotes.Contains(noteValue % 12);
         }
     }
 }
