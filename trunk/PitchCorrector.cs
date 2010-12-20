@@ -31,11 +31,9 @@ namespace HarmonicSolo
             this.currentNoteArray = currentNoteArray;
 
             forbidenInvervalList = new List<int>();
-            forbidenInvervalList.Add(0);
             forbidenInvervalList.Add(1);
             forbidenInvervalList.Add(2);
             forbidenInvervalList.Add(6);
-            forbidenInvervalList.Add(8);
 
             bindedNoteList = new Dictionary<int, List<int>>();
         }

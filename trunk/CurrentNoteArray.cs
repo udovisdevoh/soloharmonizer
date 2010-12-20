@@ -43,7 +43,7 @@ namespace HarmonicSolo
         /// <returns>whether note is on</returns>
         internal bool IsNoteOn(int noteValue)
         {
-            return rememberedNotes.ContainsKey(noteValue) && DateTime.Now.Subtract(rememberedNotes[noteValue]).Seconds < 3;
+            return rememberedNotes.ContainsKey(noteValue) && DateTime.Now.Subtract(rememberedNotes[noteValue]).Milliseconds < 300;
         }
     }
 }
