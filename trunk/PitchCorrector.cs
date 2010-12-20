@@ -18,9 +18,9 @@ namespace HarmonicSolo
         /// <summary>
         /// List of intervals to avoid
         /// </summary>
-        private List<int> forbidenInvervalList;
+        private List<int> forbiddenInvervalList;
 
-        private Dictionary<int, List<int>> bindedNoteList;
+        private List<int> listNoteToTurnOff;
 
         /// <summary>
         /// Create pitch corrector
@@ -28,96 +28,30 @@ namespace HarmonicSolo
         /// <param name="currentNoteArray">Remembers note being played</param>
         public PitchCorrector(CurrentNoteArray currentNoteArray)
         {
+            listNoteToTurnOff = new List<int>();
+
             this.currentNoteArray = currentNoteArray;
 
-            forbidenInvervalList = new List<int>();
-            forbidenInvervalList.Add(1);
-            forbidenInvervalList.Add(2);
-            forbidenInvervalList.Add(6);
-
-            bindedNoteList = new Dictionary<int, List<int>>();
+            forbiddenInvervalList = new List<int>();
+            forbiddenInvervalList.Add(1);
+            forbiddenInvervalList.Add(2);
+            forbiddenInvervalList.Add(6);
         }
 
-        /// <summary>
-        /// Try to harmonize pitch
-        /// </summary>
-        /// <param name="absolutePitch">pitch to fix</param>
-        /// <returns>fixed absolute pitch or -1 if can't do anything about it</returns>
-        internal int TryFixPitch(int absolutePitch)
+        internal IEnumerable<int> GetListNoteToTurnOff(int currentNote)
         {
-            int originalAbsolutePitch = absolutePitch;
-
-            for (int i = 0; i < 10; i++)
+            listNoteToTurnOff.Clear();
+            for (int pitch = 0; pitch < 128; pitch++)
             {
-                foreach (int forbidenInterval in forbidenInvervalList)
+                foreach (int forbiddenInterval in forbiddenInvervalList)
                 {
-                    int relativePitch = absolutePitch % 12;
-
-                    if (currentNoteArray.IsNoteOn((relativePitch + forbidenInterval) % 12) && absolutePitch - 1 != originalAbsolutePitch)
+                    if ((currentNote + forbiddenInterval) % 12 == pitch % 12 || (currentNote - forbiddenInterval) % 12 == pitch % 12)
                     {
-                        absolutePitch -= 1;
-                    }
-                    else if (currentNoteArray.IsNoteOn((relativePitch - forbidenInterval) % 12) && absolutePitch + 1 != originalAbsolutePitch)
-                    {
-                        absolutePitch += 1;
+                        listNoteToTurnOff.Add(pitch);
                     }
                 }
             }
-
-            foreach (int forbidenInterval in forbidenInvervalList)
-            {
-                int relativePitch = absolutePitch % 12;
-                if (currentNoteArray.IsNoteOn((relativePitch + forbidenInterval) % 12))
-                {
-                    return -1;
-                }
-                else if (currentNoteArray.IsNoteOn((relativePitch - forbidenInterval) % 12))
-                {
-                    return -1;
-                }
-            }
-
-            SetNoteBinding(originalAbsolutePitch, absolutePitch);
-
-            return absolutePitch;
-        }
-
-        private void SetNoteBinding(int fromNote, int toNote)
-        {
-            List<int> bindedNoteListForNote;
-            if (!bindedNoteList.TryGetValue(fromNote, out bindedNoteListForNote))
-            {
-                bindedNoteListForNote = new List<int>();
-                bindedNoteList.Add(fromNote, bindedNoteListForNote);
-            }
-            bindedNoteListForNote.Add(toNote);
-        }
-
-        /// <summary>
-        /// Get the list of notes that are binded to another note
-        /// </summary>
-        /// <param name="sourceNote">source note)</param>
-        /// <returns>list of notes binded to it</returns>
-        internal IEnumerable<int> GetBindedNoteList(int sourceNote)
-        {
-            List<int> bindedNoteListForNote;
-            if (bindedNoteList.TryGetValue(sourceNote, out bindedNoteListForNote))
-            {
-                return bindedNoteListForNote;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        internal void ResetBindedNoteList(int sourceNote)
-        {
-            List<int> bindedNoteListForNote;
-            if (bindedNoteList.TryGetValue(sourceNote, out bindedNoteListForNote))
-            {
-                bindedNoteListForNote.Clear();
-            }
+            return listNoteToTurnOff;
         }
     }
 }

@@ -40,29 +40,25 @@ namespace HarmonicSolo
 
             if (message.Command == ChannelCommand.NoteOn && message.Data2 >= 1)
             {
-                int newPitch = pitchCorrector.TryFixPitch(message.Data1);
-                if (newPitch != -1)
+                currentNoteArray.SetNote(message.Data1, true);
+
+                IEnumerable<int> listNoteToTurnOff = pitchCorrector.GetListNoteToTurnOff(message.Data1);
+                try
                 {
-                    message = new ChannelMessage(message.Command, message.MidiChannel, newPitch, message.Data2);
-                    currentNoteArray.SetNote(message.Data1 % 12, true);
-                    outputDevice.Send(message);
+                    foreach (int noteToTurnOff in new List<int>(listNoteToTurnOff))
+                        outputDevice.Send(new ChannelMessage(ChannelCommand.NoteOff, message.MidiChannel, noteToTurnOff, 0));
+                }
+                catch (Exception exception)
+                {
+                    //sorry but we need some fault tollerance here
                 }
             }
             else if (message.Command == ChannelCommand.NoteOff || (message.Command == ChannelCommand.NoteOn && message.Data2 < 1)) //note off
             {
-                IEnumerable<int> bindedNoteList = pitchCorrector.GetBindedNoteList(message.Data1);
-                if (bindedNoteList != null)
-                    foreach (int bindedNote in new List<int>(bindedNoteList))
-                    {
-                        currentNoteArray.SetNote(bindedNote % 12, false);
-                        outputDevice.Send(new ChannelMessage(ChannelCommand.NoteOff, message.MidiChannel, bindedNote, 0));
-                    }
-
-                pitchCorrector.ResetBindedNoteList(message.Data1);
-
-                /*currentNoteArray.SetNote(message.Data1 % 12, false);
-                outputDevice.Send(message);*/
+                currentNoteArray.SetNote(message.Data1, false);
             }
+
+            outputDevice.Send(message);
         }
     }
 }
