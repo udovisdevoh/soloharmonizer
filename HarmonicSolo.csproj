@@ -50,7 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CurrentNoteArray.cs" />
-    <Compile Include="NoteCanceller.cs" />
     <Compile Include="PitchCorrector.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
