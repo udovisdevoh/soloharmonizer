@@ -41,7 +41,7 @@ namespace HarmonicSolo
         internal IEnumerable<int> GetListNoteToTurnOff(int currentNote)
         {
             listNoteToTurnOff.Clear();
-            for (int pitch = 0; pitch < 128; pitch++)
+            for (int pitch = 0; pitch < currentNote; pitch++)
             {
                 foreach (int forbiddenInterval in forbiddenInvervalList)
                 {
