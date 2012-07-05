@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmonicSolo", "HarmonicSolo.csproj", "{8486D077-C7B9-41C8-BEC1-B37F59E2BA09}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sanford.Multimedia.Midi", "Sanford.Multimedia.Midi\Sanford.Multimedia.Midi.csproj", "{4269C72A-8D3A-4737-8F89-72EAA33EA9E1}"
