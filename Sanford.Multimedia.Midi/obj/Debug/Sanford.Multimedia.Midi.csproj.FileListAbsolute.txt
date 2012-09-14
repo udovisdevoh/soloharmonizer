@@ -12,3 +12,18 @@ G:\Documents and Settings\Raj Singh\Desktop\CSharpMidiToolkitV5_demo\Sanford.Mul
 G:\Documents and Settings\Raj Singh\Desktop\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.csproj.GenerateResource.Cache
 G:\Documents and Settings\Raj Singh\Desktop\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.dll
 G:\Documents and Settings\Raj Singh\Desktop\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.pdb
+C:\Users\Abrahman McGuyenski\Documents\Programming\C Sharp\soloharmonizer\Sanford.Multimedia.Midi\bin\Debug\Sanford.Multimedia.Midi.dll
+C:\Users\Abrahman McGuyenski\Documents\Programming\C Sharp\soloharmonizer\Sanford.Multimedia.Midi\bin\Debug\Sanford.Multimedia.Midi.pdb
+C:\Users\Abrahman McGuyenski\Documents\Programming\C Sharp\soloharmonizer\Sanford.Multimedia.Midi\bin\Debug\Sanford.Collections.dll
+C:\Users\Abrahman McGuyenski\Documents\Programming\C Sharp\soloharmonizer\Sanford.Multimedia.Midi\bin\Debug\Sanford.Multimedia.dll
+C:\Users\Abrahman McGuyenski\Documents\Programming\C Sharp\soloharmonizer\Sanford.Multimedia.Midi\bin\Debug\Sanford.Multimedia.Timers.dll
+C:\Users\Abrahman McGuyenski\Documents\Programming\C Sharp\soloharmonizer\Sanford.Multimedia.Midi\bin\Debug\Sanford.Threading.dll
+C:\Users\Abrahman McGuyenski\Documents\Programming\C Sharp\soloharmonizer\Sanford.Multimedia.Midi\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Abrahman McGuyenski\Documents\Programming\C Sharp\soloharmonizer\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.UI.DeviceDialog.resources
+C:\Users\Abrahman McGuyenski\Documents\Programming\C Sharp\soloharmonizer\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.UI.InputDeviceDialog.resources
+C:\Users\Abrahman McGuyenski\Documents\Programming\C Sharp\soloharmonizer\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.UI.OutputDeviceDialog.resources
+C:\Users\Abrahman McGuyenski\Documents\Programming\C Sharp\soloharmonizer\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.UI.PianoControlDialog.resources
+C:\Users\Abrahman McGuyenski\Documents\Programming\C Sharp\soloharmonizer\Sanford.Multimedia.Midi\obj\Debug\ResGen.read.1.tlog
+C:\Users\Abrahman McGuyenski\Documents\Programming\C Sharp\soloharmonizer\Sanford.Multimedia.Midi\obj\Debug\ResGen.write.1.tlog
+C:\Users\Abrahman McGuyenski\Documents\Programming\C Sharp\soloharmonizer\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.dll
+C:\Users\Abrahman McGuyenski\Documents\Programming\C Sharp\soloharmonizer\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.pdb
