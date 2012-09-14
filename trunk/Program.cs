@@ -18,8 +18,8 @@ namespace HarmonicSolo
 
         static void Main(string[] args)
         {
-            inputDevice = new InputDevice(1);
-            outputDevice = new OutputDevice(1);
+            inputDevice = new InputDevice(0);
+            outputDevice = new OutputDevice(0);
             currentNoteArray = new CurrentNoteArray();
             pitchCorrector = new PitchCorrector(currentNoteArray);
 
