@@ -1,0 +1,1 @@
+Removes dissonances from midi input (keyboard) and play music with no bad notes
